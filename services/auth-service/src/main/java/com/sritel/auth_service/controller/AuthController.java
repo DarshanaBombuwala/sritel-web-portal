@@ -1,10 +1,11 @@
 package com.sritel.auth_service.controller;
 
-import com.example.authservice.config.JwtTokenUtil;
-import com.example.authservice.model.JwtRequest;
-import com.example.authservice.model.JwtResponse;
+import com.sritel.auth_service.config.JwtTokenUtil;
+import com.sritel.auth_service.model.JwtRequest;
+import com.sritel.auth_service.model.JwtResponse;
 import com.example.authservice.service.JwtUserDetailsService;
 import com.sritel.auth_service.config.JwtTokenUtil;
+import com.sritel.auth_service.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +24,9 @@ public class AuthController {
 
     @Autowired
     private JwtUserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtService jwtService;
 
     @PostMapping("/authenticate")
     public JwtResponse createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
