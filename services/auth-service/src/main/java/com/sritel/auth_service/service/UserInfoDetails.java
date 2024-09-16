@@ -1,5 +1,6 @@
 package com.sritel.auth_service.service;
 
+import com.sritel.auth_service.model.UserInfo;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
