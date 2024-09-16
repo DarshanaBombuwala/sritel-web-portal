@@ -1,6 +1,7 @@
 package com.sritel.auth_service.filter;
 
 import com.sritel.auth_service.service.JwtService;
+import com.sritel.auth_service.service.UserInfoService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

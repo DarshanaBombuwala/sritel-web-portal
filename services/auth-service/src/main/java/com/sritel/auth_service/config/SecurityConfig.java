@@ -1,5 +1,7 @@
 package com.sritel.auth_service.config;
 
+import com.sritel.auth_service.filter.JwtAuthFilter;
+import com.sritel.auth_service.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
