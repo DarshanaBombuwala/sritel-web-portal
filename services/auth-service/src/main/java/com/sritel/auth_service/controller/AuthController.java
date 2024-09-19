@@ -23,7 +23,7 @@ public class AuthController {
     @Autowired
     private JwtService jwtService;
 
-    @PostMapping("/authenticate")
+    @PostMapping("/login")
     public String authenticateAndGetToken(@RequestBody JwtRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
