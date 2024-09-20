@@ -34,5 +34,7 @@ public class User {
 
     private String Status;
 
+    private String roles;
+
 
 }
