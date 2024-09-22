@@ -11,17 +11,14 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Basic validation
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
-    // Simulate an API call to sign up
-    // Replace this with actual sign-up logic
     console.log("User signed up:", { username, email, password });
 
-    // Redirect to sign-in page after successful sign-up
+
     navigate('/signin');
   };
 
