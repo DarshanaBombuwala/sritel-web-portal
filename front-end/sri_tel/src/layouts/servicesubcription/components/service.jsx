@@ -5,6 +5,7 @@ const Service = ({ name, description }) => {
     <div>
       <h3>{name}</h3>
       <p>{description}</p>
+      <button>subscribe</button>
     </div>
   );
 };

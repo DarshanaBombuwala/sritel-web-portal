@@ -4,6 +4,7 @@ import './App.css';
 import SignIn from './layouts/auth/signin'; 
 import SignUp from './layouts/auth/signup';
 import Optionpage from './layouts/option/optionpage';
+import ServicesPage from './layouts/servicesubcription/servicesubscriptionpage';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/options" element={<Optionpage />} />
-          <Route path="/options" element={<Optionpage />} />
+          <Route path="/services" element={<ServicesPage />} />
           
         </Routes>
       </div>
