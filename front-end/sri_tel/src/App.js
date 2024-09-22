@@ -5,6 +5,8 @@ import SignIn from './layouts/auth/signin';
 import SignUp from './layouts/auth/signup';
 import Optionpage from './layouts/option/optionpage';
 import ServicesPage from './layouts/servicesubcription/servicesubscriptionpage';
+import BillsPage from './layouts/bill/billspage';
+import PaymentsPage from './layouts/payment/paymentpage';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/options" element={<Optionpage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/bills" element={<BillsPage />} />
+          <Route path="/payments" element={<PaymentsPage />} />
           
         </Routes>
       </div>
