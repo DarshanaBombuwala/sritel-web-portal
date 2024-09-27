@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Bill from './components/bill'; // Import the Bill component
+import axios from 'axios';
 
 const bills = [
   { id: 1, type: 'Current', description: 'yoyoyooy', amount: 100 },
@@ -9,6 +10,22 @@ const bills = [
 
 const BillsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
+
+  const [bills, setBills] = useState([])
+
+  useState(() => {
+    const getBills = async () => {
+      axios.get('')
+        .then(response => {
+          if(response.status===200) setBills(response.data)
+        })
+        .catch(error => {
+
+        })
+    }
+
+    getBills()
+  }, [])
 
   const filteredBills = bills.filter(bill =>
     bill.description.toLowerCase().includes(searchTerm.toLowerCase())
