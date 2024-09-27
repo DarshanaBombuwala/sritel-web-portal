@@ -47,6 +47,7 @@ const BillsPage = () => {
             description={bill.serviceName}
             amount={bill.amount}
             createdDate={bill.createdDate}
+            pay={true}
           />
         ))}
         <h3>Previous Bills</h3>
