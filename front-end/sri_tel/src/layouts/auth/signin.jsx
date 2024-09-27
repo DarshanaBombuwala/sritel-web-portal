@@ -9,9 +9,9 @@ function SignIn() {
   const navigate = useNavigate()
 
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-    axios.post('http://localhost:8081/AUTH-SERVICE/authentication/login', {username: username, password: password})
+    await axios.post('http://localhost:8081/AUTH-SERVICE/authentication/login', {username: username, password: password})
       .then(response => {
         if(response.status===200){
           navigate('/options')
@@ -50,6 +50,7 @@ function SignIn() {
           <button type="submit">Sign In</button>
         </div>
       </form>
+
     </div>
   );
 }
