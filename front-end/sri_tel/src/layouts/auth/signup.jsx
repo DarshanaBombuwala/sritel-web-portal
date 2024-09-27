@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,6 +18,15 @@ const SignUp = () => {
     }
 
     console.log("User signed up:", { username, email, password });
+    axios.post('http://localhost:8081/AUTH-SERVICE/authentication/login', {username: username, password: password})
+      .then(response => {
+        if(response.status===200){
+          navigate('/options')
+        }
+      })
+      .catch(error => {
+        
+      })
 
 
     navigate('/signin');
