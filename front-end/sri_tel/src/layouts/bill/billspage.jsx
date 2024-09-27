@@ -26,6 +26,22 @@ const BillsPage = () => {
     getBills()
   }, [])
 
+  const [bills, setBills] = useState([])
+
+  useState(() => {
+    const getBills = async () => {
+      axios.get('')
+        .then(response => {
+          if(response.status===200) setBills(response.data)
+        })
+        .catch(error => {
+
+        })
+    }
+
+    getBills()
+  }, [])
+
   const filteredBills = bills.filter(bill =>
     bill.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
