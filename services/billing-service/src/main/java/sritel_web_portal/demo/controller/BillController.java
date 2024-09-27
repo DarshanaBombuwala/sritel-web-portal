@@ -25,7 +25,7 @@ public class BillController {
         }
     }
 
-    @GetMapping("/create")
+    @PostMapping("/create")
     public ResponseEntity<Object> createBill(@RequestBody BillDto billDto){
         try{
             billService.createBill(billDto);
