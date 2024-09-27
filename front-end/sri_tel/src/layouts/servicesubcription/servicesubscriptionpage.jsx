@@ -22,7 +22,7 @@ const ServicesPage = () => {
           if(response.status===200){
             response.data && setAllServices(
               allServices.map(service => (
-                {...service, sub: response.data.find(d => d.serviceId===service.id)?true:false}
+                {...service, sub: response.data.includes(service.id)}
               ))
             )
           }
