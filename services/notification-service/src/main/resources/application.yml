@@ -1,5 +1,6 @@
-
 spring:
+  application:
+    name: notification-service  # Set service name to authentication-service
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -7,8 +8,6 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  application:
-    name: notification-service
 
 mail:
   host: smtp.gmail.com
@@ -22,11 +21,8 @@ mail:
         starttls:
           enable: true
 
-
 server:
-  port: 8081  # Port on which the notification service is running
-
-    # Unique service name for Eureka
+  port: 8084  # Port on which the notification service is running
 
 eureka:
   client:
