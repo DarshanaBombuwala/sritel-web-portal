@@ -3,7 +3,9 @@ package com.sritel.user_service.controller;
 import com.sritel.user_service.dto.PasswordChangeDto;
 import com.sritel.user_service.model.User;
 import com.sritel.user_service.service.UserAccountService;
+import com.sritel.user_service.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +19,11 @@ public class UserAccountController {
 
     private final UserAccountService userAccountService;
 
+
+
     @PostMapping("/change-password")
     public ResponseEntity<String> changePassword(@RequestBody PasswordChangeDto passwordChangeDto) {
+
         boolean isPasswordChanged = userAccountService.changePassword(
                 passwordChangeDto.getCurrentPassword(),
                 passwordChangeDto.getNewPassword()
