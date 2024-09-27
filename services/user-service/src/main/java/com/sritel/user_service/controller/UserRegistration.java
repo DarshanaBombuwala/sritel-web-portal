@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,8 @@ public class UserRegistration {
 
     private final UserService userService;
     private final OtpClient otpClient;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     @PostMapping("/register")
@@ -33,7 +36,7 @@ public class UserRegistration {
                 .lastName(userDto.getLastname())
                 .email(userDto.getEmail())
                 .mobileNumber(userDto.getMobileNumber())
-                .password(userDto.getPassword())
+                .password(passwordEncoder.encode(userDto.getPassword()))
                 .userName(userDto.getUserName())
                 .build();
 

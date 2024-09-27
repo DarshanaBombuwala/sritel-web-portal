@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
-@FeignClient(name = "user-service")
+@FeignClient(name = "USER-SERVICE")
 public interface UserDataClient {
-    @GetMapping("/api/users/username")
+    @GetMapping("/account/username")
     Optional<UserInfo> getUserByUsername(@RequestParam("username") String username);
 }

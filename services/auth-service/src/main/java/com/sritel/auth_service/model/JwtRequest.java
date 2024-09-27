@@ -10,7 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JwtRequest implements Serializable {
-    private String username;
+    private String userName;
     private String password;
 
     // Getters and Setters

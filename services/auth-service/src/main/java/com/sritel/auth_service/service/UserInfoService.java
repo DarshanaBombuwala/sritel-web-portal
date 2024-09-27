@@ -2,17 +2,21 @@ package com.sritel.auth_service.service;
 
 import com.sritel.auth_service.feignclient.UserDataClient;
 import com.sritel.auth_service.model.UserInfo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
+
 public class UserInfoService implements UserDetailsService {
+
     @Autowired
     private UserDataClient userDataClient;
 

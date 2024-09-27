@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .cors().disable()
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless APIs
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/authenticate", "/auth/addNewUser", "/auth/generateToken","/user/getOtp","/user/register").permitAll()
+                        .requestMatchers("/authenticate", "/auth/addNewUser", "/auth/generateToken","/user/getOtp","/user/register","/account/username").permitAll()
                         .requestMatchers("/auth/user/**").hasAuthority("ROLE_USER")
                         .requestMatchers("/auth/admin/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated() // Protect all other endpoints
