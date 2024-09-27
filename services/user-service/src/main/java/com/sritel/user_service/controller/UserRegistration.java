@@ -34,6 +34,7 @@ public class UserRegistration {
                 .email(userDto.getEmail())
                 .mobileNumber(userDto.getMobileNumber())
                 .password(userDto.getPassword())
+                .userName(userDto.getUserName())
                 .build();
 
         userService.registerCustomer(newUser);

@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient("auth-service")
+@FeignClient("AUTH-SERVICE")
 public interface OtpClient {
 
-    @PostMapping("auth/send-otp")
+    @PostMapping("otp/send-otp")
     void sendOTP(@RequestBody MobileNumberDto mobileNumberDto);
 
-    @PostMapping("auth/verify-otp")
+    @PostMapping("otp/verify-otp")
     ResponseEntity<String> verifyOtp(@RequestBody OtpVerificationDto otpVerificationDto);
 }

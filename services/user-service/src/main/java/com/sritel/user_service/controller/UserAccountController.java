@@ -1,14 +1,14 @@
 package com.sritel.user_service.controller;
 
 import com.sritel.user_service.dto.PasswordChangeDto;
+import com.sritel.user_service.model.User;
 import com.sritel.user_service.service.UserAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("account")
@@ -30,4 +30,13 @@ public class UserAccountController {
             return ResponseEntity.badRequest().body("Invalid OTP or mobile number");
         }
     }
+
+
+    @GetMapping("/username")
+    public ResponseEntity<User> getUserByUsername(@RequestParam("username") String username) {
+        Optional<User> userInfo = userAccountService.getUserByUsername(username);
+
+        return userInfo.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
 }
