@@ -5,7 +5,7 @@ const Bill = ({ key, description, amount, createdDate, pay }) => {
 
   const navigate = useNavigate()
 
-  const pay = () => {
+  const handlePay = () => {
     navigate('/payments', {state: { id: key }})
   }
 
@@ -14,7 +14,7 @@ const Bill = ({ key, description, amount, createdDate, pay }) => {
       <p><strong>Created Date:</strong> {createdDate}</p>
       <p><strong>Description:</strong> {description}</p>
       <p><strong>Amount:</strong> ${amount}</p>
-      {pay && <button onClick={pay}>Pay Now</button>}
+      {pay && <button onClick={handlePay}>Pay Now</button>}
       <hr />
     </div>
   );
