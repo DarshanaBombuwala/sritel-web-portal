@@ -23,5 +23,5 @@ public class Bill {
     private LocalDate createdDate;
     private BillStatus billStatus;
     private int userId;
-    private int serviceId;
+    private String serviceName;
 }

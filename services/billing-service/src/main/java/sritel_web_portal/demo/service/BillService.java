@@ -26,7 +26,7 @@ public class BillService {
         bill.setBillStatus(billDto.getBillStatus());
         bill.setCreatedDate(LocalDate.now());
         bill.setUserId(jwtService.extractUserId());
-        bill.setServiceId(billDto.getServiceId());
+        bill.setServiceName(billDto.getServiceName());
         billRepository.save(bill);
     }
 }
