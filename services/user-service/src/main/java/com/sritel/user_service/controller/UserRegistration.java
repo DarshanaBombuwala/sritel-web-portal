@@ -23,6 +23,7 @@ public class UserRegistration {
 
     private final UserService userService;
     private final OtpClient otpClient;
+    private final UserInfoService userInfoService;
 
 
     @PostMapping("/register")
@@ -50,6 +51,15 @@ public class UserRegistration {
     public boolean verifyOtp(@RequestBody OtpVerificationDto otpVerificationDto) {
         ResponseEntity<String> response = userService.verifyOtp(otpVerificationDto);
         return response.getStatusCode() == HttpStatus.OK;
+    }
+
+    @GetMapping("/user-details")
+    public Optional<UserDetails> getUserDetails(@RequstParam("username")String username) {
+        try{
+            return userInfoService.loadUserByUsername(username);
+        }catch (Exception e){
+            return Optional.empty();
+        }
     }
 
 }
