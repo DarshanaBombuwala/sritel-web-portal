@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import '../../App.css';
 
@@ -8,9 +9,21 @@ const PaymentsPage = () => {
   const [cvv, setCvv] = useState('');
   const [amount, setAmount] = useState('');
 
-  const handleSubmit = (e) => {
+  const { id } = location.state || {};
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // You would handle the form submission here (e.g., send the payment data to an API)
+    
+    await axios.post('http://localhost:8081/PAYMENT_SERVICE/pay/bill', {cardNumber: cardNumber, cardName: cardName, expiryDate: expiryDate, cvv: cvv, amount: amount, serviceId: id})
+      .then(response => {
+        if(response.status===200){
+          
+        }
+      })
+      .catch(error => {
+
+      })
+
     alert('Payment Submitted!');
   };
 
