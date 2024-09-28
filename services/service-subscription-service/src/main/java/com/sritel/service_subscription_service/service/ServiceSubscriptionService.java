@@ -30,14 +30,16 @@ public class ServiceSubscriptionService {
         // Now you have user details, continue with your service subscription logic
         // Example: Activate service for the user
         if(service.isPresent()) {
+            com.sritel.service_subscription_service.model.Service service1 = service.get();
+
             ServiceSubscription subscription = new ServiceSubscription();
             subscription.setUserId((long) userId);  // Use userId from the fetched user details
             subscription.setServiceId((long) serviceId);
             subscription.setStatus(SubscriptionStatus.valueOf("ACTIVE"));
+            subscription.setServiceName(service1.getName());
             subscription.setActivationDate(LocalDateTime.now());
             serviceSubscriptionRepository.save(subscription);
 
-            com.sritel.service_subscription_service.model.Service service1 = service.get();
             billServiceClient.createBill(
                 new BillDto(
                     service1.getAmount(),

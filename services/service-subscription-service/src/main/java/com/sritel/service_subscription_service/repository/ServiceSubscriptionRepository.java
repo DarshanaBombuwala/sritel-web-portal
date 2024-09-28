@@ -12,6 +12,6 @@ public interface ServiceSubscriptionRepository extends JpaRepository<ServiceSubs
     @Query("SELECT ss FROM ServiceSubscription ss WHERE ss.userId = :userId AND ss.serviceId = :serviceId")
     ServiceSubscription findByUserAndService(@Param("userId") int userId, @Param("serviceId") int serviceId);
 
-    @Query("SELECT ss.serviceId FROM ServiceSubscription ss WHERE ss.userId = :userId")
+    @Query("SELECT ss.serviceId FROM ServiceSubscription ss WHERE ss.userId = :userId AND ss.status = 'ACTIVE'")
     List<Integer> findAllSubscribedServicesByUserId(@Param("userId") int userId);
 }
