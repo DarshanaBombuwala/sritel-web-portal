@@ -33,6 +33,8 @@ public class OtpController {
                         "sms") // this is your channel type
                 .create();
 
+
+
         return new ResponseEntity<>("Your OTP has been sent to your verified phone number", HttpStatus.OK);
     }
 
