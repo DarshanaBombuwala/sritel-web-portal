@@ -16,7 +16,7 @@ public class ServiceSubscriptionController {
     private final JwtService jwtService;
 
     @PostMapping("/activate/{serviceId}")
-    public ResponseEntity<String> activateService(@PathVariable("serviceId") Long serviceId) {
+    public ResponseEntity<String> activateService(@PathVariable("serviceId") int serviceId) {
         serviceSubscriptionService.activateService(jwtService.extractUserId(), serviceId);
         return ResponseEntity.ok("Service activated successfully");
     }

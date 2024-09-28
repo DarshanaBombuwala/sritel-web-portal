@@ -17,4 +17,5 @@ public class BillDto {
     private BillStatus billStatus;
     private int userId;
     private String serviceName;
+    private int serviceId;
 }

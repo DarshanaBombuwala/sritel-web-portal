@@ -23,6 +23,7 @@ public class ServiceSubscription {
 
     @Column(nullable = false)
     private Long serviceId;
+    private String serviceName;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

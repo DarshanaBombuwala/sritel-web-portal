@@ -1,5 +1,7 @@
-package sritel_web_portal.demo.config;
+package com.sritel.service_subscription_service.config;
 
+import com.sritel.service_subscription_service.filter.JwtAuthFilter;
+import com.sritel.service_subscription_service.service.UserInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +19,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import sritel_web_portal.demo.filter.JwtAuthFilter;
-import sritel_web_portal.demo.service.UserInfoService;
 
 @Configuration
 @EnableWebSecurity
@@ -40,10 +40,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for stateless APIs
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/bill/",
-                                "/bill/create",
-                                "/bill/pay"
-                        ).hasAuthority("ROLE_USER")
+                                "/api/subscription/activate/**",
+                                "/api/subscription/deactivate/**",
+                                "/api/subscription/get"
+                                ).hasAuthority("ROLE_USER")
                         .anyRequest().authenticated() // Protect all other endpoints
                 )
                 .sessionManagement(sess -> sess

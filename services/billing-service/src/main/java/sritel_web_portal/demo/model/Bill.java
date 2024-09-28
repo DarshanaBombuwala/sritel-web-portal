@@ -24,4 +24,5 @@ public class Bill {
     private BillStatus billStatus;
     private int userId;
     private String serviceName;
+    private int serviceId;
 }

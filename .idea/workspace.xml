@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d66d6fc0-7ff9-41a4-89e3-77d2f776b10f" name="Changes" comment="" />
+    <list default="true" id="d66d6fc0-7ff9-41a4-89e3-77d2f776b10f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/UserDataClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/filter/JwtAuthFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/model/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/repository/ServiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/service/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/controller/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/dto/BillDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/dto/BillDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/model/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/model/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/service/BillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/service/BillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/controller/ServiceSubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/controller/ServiceSubscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/dto/BillDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/dto/BillDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/BillServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/BillServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/UserServiceClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/model/ServiceSubscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/model/ServiceSubscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/service/ServiceSubscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/service/ServiceSubscriptionService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,22 +48,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Middlewere/services/billing-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/STL/sritel-web-portal/services/billing-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Middlewere\services\billing-service" />
