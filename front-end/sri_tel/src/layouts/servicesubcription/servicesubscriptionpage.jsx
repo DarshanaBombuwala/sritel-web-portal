@@ -1,5 +1,6 @@
 import React from 'react';
 import Service from './components/service'; // Import the Service component
+import '../../App.css';
 
 const services = [
   { id: 1, name: 'Service 1', description: 'Description for Service 1' },
@@ -9,9 +10,9 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div>
-      <h2>Our Services</h2>
-      <div>
+    <div className="services-container">
+      <h2 className="services-title">Our Services</h2>
+      <div className="services-list">
         {services.map(service => (
           <Service
             key={service.id}
