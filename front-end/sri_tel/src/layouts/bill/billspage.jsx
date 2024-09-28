@@ -58,7 +58,7 @@ const BillsPage = () => {
       />
 
       <div className="bills-container">
-        <h3 className="bills-subtitle">Current Bills</h3>
+        <h3 className="bills-subtitle">Current Bill</h3>
         {filteredBills.filter(bill => bill.billStatus === 'PENDING').map(bill => (
           <Bill
             key={bill.id}
