@@ -12,4 +12,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUserName(String username);
 
 
+   String getPasswordByUserName(String userName);
+
+    Boolean updateExistingPassword(String newPassword);
 }
