@@ -27,7 +27,6 @@ const BillsPage = () => {
     getBills()
   }, [])
 
-  const [bills, setBills] = useState([])
 
   useState(() => {
     const getBills = async () => {
