@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import '../../App.css';
+import { useLocation } from 'react-router-dom';
 
 const PaymentsPage = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -9,6 +10,7 @@ const PaymentsPage = () => {
   const [cvv, setCvv] = useState('');
   const [amount, setAmount] = useState('');
 
+  const location = useLocation();
   const { id } = location.state || {};
 
   const handleSubmit = async(e) => {
