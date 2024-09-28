@@ -1,26 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 const OptionPage = () => {
   return (
-    <div>
-      <h2>Options Page</h2>
-      <div>
-        <h3>Choose an Option:</h3>
-        <ul>
-          <li>
+    <div className="options-page">
+      <h2 className="options-title">Options Page</h2>
+      <div className="options-container">
+        <h3 className="options-subtitle">Choose an Option:</h3>
+        <ul className="options-list">
+          <li className="options-list-item">
             <Link to="/services">
-              <button>Services</button>
+              <button className="options-button">Services</button>
             </Link>
           </li>
-          <li>
+          <li className="options-list-item">
             <Link to="/bills">
-              <button>Bills</button>
+              <button className="options-button">Bills</button>
             </Link>
           </li>
-          <li>
+          <li className="options-list-item">
             <Link to="/payments">
-              <button>Payments</button>
+              <button className="options-button">Payments</button>
             </Link>
           </li>
         </ul>

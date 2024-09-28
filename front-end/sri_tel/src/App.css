@@ -217,3 +217,148 @@
     font-size: 20px;
   }
 }
+
+/* Options Page */
+.options-page {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.options-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.options-container {
+  text-align: center;
+}
+
+.options-subtitle {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.options-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.options-list-item {
+  margin-bottom: 1rem;
+}
+
+.options-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.options-button:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .options-page {
+    width: 95%;
+  }
+
+  .options-title {
+    font-size: 24px;
+  }
+
+  .options-subtitle {
+    font-size: 20px;
+  }
+}
+
+/* Payment Form */
+.payment-form-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.payment-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 18px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment-button:hover {
+  background-color: #218838;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .payment-form-container {
+    width: 95%;
+  }
+
+  .payment-form-title {
+    font-size: 24px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+  }
+
+  .payment-button {
+    font-size: 16px;
+  }
+}

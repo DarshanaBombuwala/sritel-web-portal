@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../App.css';
 
 const PaymentsPage = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -14,10 +15,10 @@ const PaymentsPage = () => {
   };
 
   return (
-    <div>
-      <h2>Pay for Bills Online</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="payment-form-container">
+      <h2 className="payment-form-title">Pay for Bills Online</h2>
+      <form onSubmit={handleSubmit} className="payment-form">
+        <div className="form-group">
           <label htmlFor="cardNumber">Card Number:</label>
           <input
             type="text"
@@ -28,7 +29,7 @@ const PaymentsPage = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="cardName">Cardholder Name:</label>
           <input
             type="text"
@@ -39,7 +40,7 @@ const PaymentsPage = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="expiryDate">Expiry Date:</label>
           <input
             type="text"
@@ -50,7 +51,7 @@ const PaymentsPage = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="cvv">CVV:</label>
           <input
             type="text"
@@ -61,7 +62,7 @@ const PaymentsPage = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="amount">Amount:</label>
           <input
             type="text"
@@ -72,7 +73,7 @@ const PaymentsPage = () => {
             required
           />
         </div>
-        <button type="submit">Pay Now</button>
+        <button type="submit" className="payment-button">Pay Now</button>
       </form>
     </div>
   );
