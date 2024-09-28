@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../App.css';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -58,12 +59,13 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First name:</label>
+    <div className="form-container">
+      <h2 className="form-title">Sign Up</h2>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="form-label" htmlFor="firstName">First Name:</label>
           <input
+            className="form-input"
             type="text"
             id="firstName"
             value={firstName}
@@ -71,9 +73,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="lastName">Last name:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="lastName">Last Name:</label>
           <input
+            className="form-input"
             type="text"
             id="lastName"
             value={lastName}
@@ -81,9 +84,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="email">Email:</label>
           <input
+            className="form-input"
             type="email"
             id="email"
             value={email}
@@ -91,9 +95,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="username">Username:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="username">Username:</label>
           <input
+            className="form-input"
             type="text"
             id="username"
             value={username}
@@ -101,19 +106,21 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Mobile number:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="mobileNumber">Mobile Number:</label>
           <input
+            className="form-input"
             type="text"
-            id="mobileNumberl"
+            id="mobileNumber"
             value={mobileNumber}
             onChange={(e) => setMobileNumber(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="password">Password:</label>
           <input
+            className="form-input"
             type="password"
             id="password"
             value={password}
@@ -121,9 +128,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+        <div className="form-group">
+          <label className="form-label" htmlFor="confirmPassword">Confirm Password:</label>
           <input
+            className="form-input"
             type="password"
             id="confirmPassword"
             value={confirmPassword}
@@ -131,22 +139,24 @@ const SignUp = () => {
             required
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button className="form-button" type="submit">Sign Up</button>
       </form>
-      <br></br>
-      <form onSubmit={handleOtp}>
-        <div>
-          <br />
-          <label>OTP: </label>
+
+      <br />
+
+      <form className="form" onSubmit={handleOtp}>
+        <div className="form-group">
+          <label className="form-label">OTP: </label>
           <input
+            className="form-input"
             type="text"
             value={OTP}
             onChange={(e) => setOTP(e.target.value)}
             required
           />
-          <button type="submit">Submit</button>
+          <button className="form-button" type="submit">Submit</button>
         </div>
-          {successOTP}
+        {successOTP && <p className="form-success">{successOTP}</p>}
       </form>
     </div>
   );
