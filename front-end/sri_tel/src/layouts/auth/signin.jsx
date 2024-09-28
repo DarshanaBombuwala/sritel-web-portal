@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
   // State to hold input values
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [OTP, setOTP] = useState('');
-  const [successOTP, setSuccessOTP] = useState(false);
+  const navigate = useNavigate()
 
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-    console.log('Username:', username);
-    console.log('Password:', password);
-
+    await axios.post('http://localhost:8081/AUTH-SERVICE/authentication/login', {username: username, password: password})
+      .then(response => {
+        if(response.status===200){
+          navigate('/options')
+        }
+      })
+      .catch(error => {
+        
+      })
     // You can add your sign-in logic here (like calling an API)
   };
 
@@ -38,21 +45,12 @@ function SignIn() {
             required
           />
         </div>
+        
         <div>
-            <br />
-          <label>OTP: </label>
-          <input
-            type="text"
-            value={OTP}
-            onChange={(e) => setOTP(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-        {successOTP }
           <button type="submit">Sign In</button>
         </div>
       </form>
+
     </div>
   );
 }
