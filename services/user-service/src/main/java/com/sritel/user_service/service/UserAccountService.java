@@ -25,19 +25,20 @@ public class UserAccountService {
 
 
     public boolean changePassword(String currentPassword, String newPassword) {
-        String existingPassword = userRepository.getPasswordByUserName(jwtUtil.extractUsername((String) SecurityContextHolder.getContext().getAuthentication().getCredentials()));
-
+        String username = jwtUtil.extractUsername((String) SecurityContextHolder.getContext().getAuthentication().getCredentials());
+        String existingPassword = userRepository.getPasswordByUserName(username);
 
         if (passwordEncoder.matches(currentPassword, existingPassword)) {
-
             String encodedNewPassword = passwordEncoder.encode(newPassword);
 
-
-            return userRepository.updateExistingPassword(encodedNewPassword);
+            // Update password in repository
+            if (userRepository.updateExistingPassword(encodedNewPassword, username) > 0) {
+                return true;
+            }
         }
-
-        return false; // Return false if the password does not match or update fails
+        return false;
     }
+
 
 
     public Optional<User> getUserByUsername(String username) {

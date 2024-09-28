@@ -28,7 +28,7 @@ public class OtpController {
         Twilio.init(System.getenv("TWILIO_ACCOUNT_SID"), System.getenv("TWILIO_AUTH_TOKEN"));
 
         Verification verification = Verification.creator(
-                        "VAe545522581b54399c3d2d4695d878fb5", // this is your verification sid
+                        "VAe545522581b54399c3d2d4695d878fb5", //
                         "+94788886171", //this is your Twilio verified recipient phone number
                         "sms") // this is your channel type
                 .create();
