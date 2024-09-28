@@ -7,6 +7,7 @@ import Optionpage from './layouts/option/optionpage';
 import ServicesPage from './layouts/servicesubcription/servicesubscriptionpage';
 import BillsPage from './layouts/bill/billspage';
 import PaymentsPage from './layouts/payment/paymentpage';
+import CustomerCare from './layouts/customercare/customercarepage';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
             <li><Link to="/signin">Sign In</Link></li>
             <li><Link to="/signup">Sign up</Link></li>
             <li><Link to="/options">options</Link></li>
+            <li><Link to="/customercare">customer care</Link></li>
+
           </ul>
         </nav>
 
@@ -32,6 +35,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/bills" element={<BillsPage />} />
           <Route path="/payments" element={<PaymentsPage />} />
+          <Route path="/customercare" element={<CustomerCare />} />
           
         </Routes>
       </div>
