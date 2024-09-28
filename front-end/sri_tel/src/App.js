@@ -8,21 +8,13 @@ import ServicesPage from './layouts/servicesubcription/servicesubscriptionpage';
 import BillsPage from './layouts/bill/billspage';
 import PaymentsPage from './layouts/payment/paymentpage';
 import CustomerCare from './layouts/customercare/customercarepage';
+import Navbar from './layouts/navbar/navbar';
 
 function App() {
   return (
     <Router> 
       <div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/signin">Sign In</Link></li>
-            <li><Link to="/signup">Sign up</Link></li>
-            <li><Link to="/options">options</Link></li>
-            <li><Link to="/customercare">customer care</Link></li>
-
-          </ul>
-        </nav>
+        {<Navbar/>}
 
         <Routes>
 
