@@ -14,7 +14,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-src/main/java/com/sritel/service_subscription_service/.idea
+*.idea/
 *.iws
 *.iml
 *.ipr

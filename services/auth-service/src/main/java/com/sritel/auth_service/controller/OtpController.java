@@ -36,7 +36,11 @@ public class OtpController {
                         "sms") // this is your channel type
                 .create();
 
+<<<<<<< HEAD
         otpCache.put("+94788886171", verification.getSid());
+=======
+
+>>>>>>> origin/dev
 
         return new ResponseEntity<>("Your OTP has been sent to your verified phone number", HttpStatus.OK);
     }
