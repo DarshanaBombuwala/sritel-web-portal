@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("users")
 @RequiredArgsConstructor
 public class UserRegistration {
 
@@ -38,6 +38,7 @@ public class UserRegistration {
                 .mobileNumber(userDto.getMobileNumber())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .userName(userDto.getUserName())
+                .roles("USER")
                 .build();
 
         userService.registerCustomer(newUser);
@@ -45,12 +46,12 @@ public class UserRegistration {
         return ResponseEntity.status(HttpStatus.CREATED).body("Customer registered successfully");
     }
 
-    @PostMapping("getOtp")
+    @PostMapping("/getOtp")
     public void getOTP(@RequestBody MobileNumberDto mobileNumberDto){
         userService.sendOTP(mobileNumberDto);
     }
 
-    @PostMapping("verifyOtp")
+    @PostMapping("/verifyOtp")
     public boolean verifyOtp(@RequestBody OtpVerificationDto otpVerificationDto) {
         ResponseEntity<String> response = userService.verifyOtp(otpVerificationDto);
         return response.getStatusCode() == HttpStatus.OK;

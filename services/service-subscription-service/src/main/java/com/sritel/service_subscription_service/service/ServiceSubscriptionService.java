@@ -40,13 +40,14 @@ public class ServiceSubscriptionService {
             subscription.setActivationDate(LocalDateTime.now());
             serviceSubscriptionRepository.save(subscription);
 
-            billServiceClient.createBill(
+            String result = billServiceClient.createBill(
                 new BillDto(
+                    0,
                     service1.getAmount(),
                     BillStatus.PENDING,
                     userId,
-                    serviceId,
-                    service1.getName()
+                    service1.getName(),
+                    serviceId
                 )
             );
         }

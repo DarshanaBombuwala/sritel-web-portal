@@ -1,13 +1,12 @@
-package com.sritel.user_service.dto;
+package sritel_web_portal.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class UserDto {
 
     private int userId;

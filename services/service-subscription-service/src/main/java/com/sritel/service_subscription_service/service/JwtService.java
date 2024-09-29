@@ -5,15 +5,18 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtService {
@@ -50,7 +53,12 @@ public class JwtService {
     }
 
     public int extractUserId() {
-        return Integer.parseInt(extractAllClaims(SecurityContextHolder.getContext().getAuthentication().getCredentials().toString()).get("userId", String.class));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserInfoDetails userInfoDetails) {
+            return userInfoDetails.getUserId();
+        }
+        return 0;
+//        return Integer.parseInt(extractAllClaims(SecurityContextHolder.getContext().getAuthentication().getCredentials().toString()).get("userId", String.class));
     }
 
     // Extract the expiration date from the token

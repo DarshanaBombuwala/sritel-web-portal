@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/subscription")
+@RequestMapping("api/subscription")
 @RequiredArgsConstructor
 public class ServiceSubscriptionController {
 
@@ -17,8 +17,14 @@ public class ServiceSubscriptionController {
 
     @PostMapping("/activate/{serviceId}")
     public ResponseEntity<String> activateService(@PathVariable("serviceId") int serviceId) {
-        serviceSubscriptionService.activateService(jwtService.extractUserId(), serviceId);
-        return ResponseEntity.ok("Service activated successfully");
+        try{
+            serviceSubscriptionService.activateService(jwtService.extractUserId(), serviceId);
+            System.out.println(jwtService.extractUserId());
+            return ResponseEntity.ok("Service activated successfully");
+        } catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @PostMapping("/deactivate/{serviceId}")

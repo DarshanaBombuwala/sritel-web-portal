@@ -1,5 +1,6 @@
 package com.sritel.service_subscription_service.service;
 
+import com.sritel.service_subscription_service.dto.UserDto;
 import com.sritel.service_subscription_service.feignclient.UserDataClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,13 @@ public class UserInfoService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Optional<UserDetails> userDetail = userDataClient.getUserDetails(username); // Assuming 'email' is used as username
+        Optional<UserDto> userDetail = userDataClient.getUserByUsername(username); // Assuming 'email' is used as username
 
-        // Converting UserInfo to UserDetails
-        return userDetail.orElseThrow();
+        if(userDetail.isEmpty()) {
+            return null;
+        }
 
+        UserDto userDto = userDetail.get();
+        return new UserInfoDetails(userDto.getUserName(), userDto.getPassword(), userDto.getRoles(), userDto.getUserId());
     }
 }

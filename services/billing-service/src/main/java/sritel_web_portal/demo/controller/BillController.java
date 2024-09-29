@@ -3,16 +3,13 @@ package sritel_web_portal.demo.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sritel_web_portal.demo.dto.BillDto;
 import sritel_web_portal.demo.dto.PaymentDto;
 import sritel_web_portal.demo.service.BillService;
 
 @RestController
-@Controller("/bill")
+@RequestMapping("bill")
 @RequiredArgsConstructor
 public class BillController {
 
@@ -21,6 +18,7 @@ public class BillController {
     @GetMapping("/")
     public ResponseEntity<Object> getBills(){
         try{
+            System.out.println(1);
             return ResponseEntity.ok(billService.getBills());
         }catch (Exception e){
             return ResponseEntity.internalServerError().body(e.getMessage());
@@ -28,8 +26,9 @@ public class BillController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Object> createBill(@RequestBody BillDto billDto){
+    public ResponseEntity<String> createBill(@RequestBody BillDto billDto){
         try{
+            System.out.println(billDto);
             billService.createBill(billDto);
             return ResponseEntity.ok("Bill created successfully.");
         }catch (Exception e){

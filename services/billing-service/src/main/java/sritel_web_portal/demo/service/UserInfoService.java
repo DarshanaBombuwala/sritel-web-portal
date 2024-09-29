@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import sritel_web_portal.demo.dto.UserDto;
 import sritel_web_portal.demo.feignclient.UserDataClient;
 
 import java.util.Optional;
@@ -20,10 +21,14 @@ public class UserInfoService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Optional<UserDetails> userDetail = userDataClient.getUserDetails(username); // Assuming 'email' is used as username
+        Optional<UserDto> userDetail = userDataClient.getUserByUsername(username); // Assuming 'email' is used as username
 
-        // Converting UserInfo to UserDetails
-        return userDetail.orElseThrow();
+        if(userDetail.isEmpty()) {
+            return null;
+        }
+
+        UserDto userDto = userDetail.get();
+        return new UserInfoDetails(userDto.getUserName(), userDto.getPassword(), userDto.getRoles(), userDto.getUserId());
 
     }
 }

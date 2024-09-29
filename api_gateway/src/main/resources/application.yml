@@ -21,6 +21,17 @@ spring:
           uri: lb://AUTH-SERVICE
           predicates:
             - Path=/authentication/**  # Ensure this matches the endpoints in the auth service
+            - Path=/otp/**
+
+        - id: service-subscription-service
+          uri: lb://SERVICE-SUBSCRIPTION-SERVICE
+          predicates:
+            - Path=/api/subscription/**  # Ensure this matches the endpoints in the auth service
+
+        - id: bill-service
+          uri: lb://BILL-SERVICE
+          predicates:
+            - Path=/bill/**  # Ensure this matches the endpoints in the auth service
 
 eureka:
   client:

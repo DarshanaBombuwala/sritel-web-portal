@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface BillServiceClient {
 
     @PostMapping("/bill/create")
-    ResponseEntity<Object> createBill(@RequestBody BillDto billDto);
+    String createBill(@RequestBody BillDto billDto);
 }

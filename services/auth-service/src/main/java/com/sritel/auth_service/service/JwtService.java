@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -21,9 +22,11 @@ public class JwtService {
     public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
 
     // Generate token with given user name
-    public String generateToken(String userName) {
+    public String generateToken(UserInfoDetails userInfoDetails, int userId) {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userName);
+        claims.put("userId", userId);
+        claims.put("roles", userInfoDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList());
+        return createToken(claims, userInfoDetails.getUsername());
     }
 
     // Create a JWT token with specified claims and subject (user name)

@@ -1,18 +1,17 @@
-package com.sritel.user_service.dto;
+package com.sritel.auth_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class UserDto {
 
     private int userId;
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String userName;
     private String password;
     private String email;
