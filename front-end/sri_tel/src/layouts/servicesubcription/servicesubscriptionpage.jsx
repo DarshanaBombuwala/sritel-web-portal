@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Service from './components/service'; // Import the Service component
 import axios from 'axios';
+import '../../App.css';
 
 const services = [
   { id: 1, name: 'Roaming service', description: 'International Roaming service when travelling abroad', cost: 'LKR 250.00'},
@@ -36,9 +37,9 @@ const ServicesPage = () => {
   }, [])
 
   return (
-    <div>
-      <h2>Our Services</h2>
-      <div>
+    <div className="services-container">
+      <h2 className="services-title">Our Services</h2>
+      <div className="services-list">
         {services.map(service => (
           <Service
             key={service.id}

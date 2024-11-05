@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Bill from './components/bill'; // Import the Bill component
 import axios from 'axios';
+import '../../App.css';
 
 const bill = [
   { id: 1, type: 'Current', description: 'yoyoyooy', amount: 100 },
@@ -26,7 +27,6 @@ const BillsPage = () => {
     getBills()
   }, [])
 
-  const [bills, setBills] = useState([])
 
   useState(() => {
     const getBills = async () => {
@@ -47,16 +47,18 @@ const BillsPage = () => {
   );
 
   return (
-    <div>
-      <h2>Bills Page</h2>
+    <div className="bills-page">
+      <h2 className="bills-title">Bills Page</h2>
       <input
         type="text"
+        className="bills-search"
         placeholder="Search bills"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div>
-        <h3>Current Bills</h3>
+
+      <div className="bills-container">
+        <h3 className="bills-subtitle">Current Bill</h3>
         {filteredBills.filter(bill => bill.billStatus === 'PENDING').map(bill => (
           <Bill
             key={bill.id}
@@ -66,14 +68,15 @@ const BillsPage = () => {
             pay={true}
           />
         ))}
-        <h3>Previous Bills</h3>
-        {filteredBills.filter(bill => bill.type !== 'PENDING').map(bill => (
+
+        <h3 className="bills-subtitle">Previous Bills</h3>
+        {filteredBills.filter(bill => bill.billStatus !== 'PENDING').map(bill => (
           <Bill
             key={bill.id}
             description={bill.serviceName}
             amount={bill.amount}
             createdDate={bill.createdDate}
-        />
+          />
         ))}
       </div>
     </div>

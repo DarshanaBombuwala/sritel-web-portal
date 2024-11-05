@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../../App.css';
 
 function SignIn() {
   // State to hold input values
@@ -24,21 +25,23 @@ function SignIn() {
   };
 
   return (
-    <div>
-      <h2>Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username: </label>
+    <div className="signin-container">
+      <h2 className="signin-title">Sign In</h2>
+      <form className="signin-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="form-label">Username: </label>
           <input
+            className="form-input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Password: </label>
+        <div className="form-group">
+          <label className="form-label">Password: </label>
           <input
+            className="form-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -46,13 +49,12 @@ function SignIn() {
           />
         </div>
         
-        <div>
-          <button type="submit">Sign In</button>
+        <div className="form-group">
+          <button className="form-button" type="submit">Sign In</button>
         </div>
       </form>
-
     </div>
   );
-}
+};
 
 export default SignIn;
