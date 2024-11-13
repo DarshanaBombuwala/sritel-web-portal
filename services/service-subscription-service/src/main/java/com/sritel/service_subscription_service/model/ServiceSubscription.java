@@ -18,22 +18,25 @@ public class ServiceSubscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalDateTime activationDate;
+
+    private LocalDateTime deactivationDate;
+
     @Column(nullable = false)
-    private Long userId;  // This comes from the user-service
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(nullable = false)
     private Long serviceId;
+
     private String serviceName;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SubscriptionStatus status;
 
-    private LocalDateTime activationDate;
-    private LocalDateTime deactivationDate;
-
     @Column(nullable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private Long userId;  // This comes from the user-service
+
 
     // Getters and Setters
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public interface ServiceSubscriptionRepository extends JpaRepository<ServiceSubscription,Long> {
 
     @Transactional(readOnly = true)
-    @Query(value = "SELECT ss FROM service_subscriptions ss WHERE ss.user_id = :userId AND ss.service_id = :serviceId LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT ss FROM ServiceSubscription ss WHERE ss.userId = :userId AND ss.serviceId = :serviceId")
     ServiceSubscription findByUserAndService(@Param("userId") int userId, @Param("serviceId") int serviceId);
 
     @Transactional(readOnly = true)

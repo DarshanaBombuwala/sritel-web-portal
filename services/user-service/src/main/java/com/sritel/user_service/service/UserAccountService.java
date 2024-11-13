@@ -3,12 +3,12 @@ package com.sritel.user_service.service;
 import com.sritel.user_service.model.User;
 import com.sritel.user_service.repository.UserRepository;
 import com.sritel.user_service.util.JwtUtil;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -25,6 +25,7 @@ public class UserAccountService {
     private PasswordEncoder passwordEncoder;
 
 
+    @Transactional
     public boolean changePassword(String currentPassword, String newPassword) {
         String username = jwtUtil.extractUsername((String) SecurityContextHolder.getContext().getAuthentication().getCredentials());
         String existingPassword = userRepository.getPasswordByUserName(username);
