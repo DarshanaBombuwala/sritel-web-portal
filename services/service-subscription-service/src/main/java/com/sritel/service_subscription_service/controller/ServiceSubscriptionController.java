@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("api/subscription")
@@ -18,8 +19,8 @@ public class ServiceSubscriptionController {
     @PostMapping("/activate/{serviceId}")
     public ResponseEntity<String> activateService(@PathVariable("serviceId") int serviceId) {
         try{
-            serviceSubscriptionService.activateService(jwtService.extractUserId(), serviceId);
-            System.out.println(jwtService.extractUserId());
+            if(!serviceSubscriptionService.activateService(jwtService.extractUserId(), serviceId)) throw new Exception();
+
             return ResponseEntity.ok("Service activated successfully");
         } catch (Exception e){
             e.printStackTrace();
@@ -29,8 +30,15 @@ public class ServiceSubscriptionController {
 
     @PostMapping("/deactivate/{serviceId}")
     public ResponseEntity<String> deactivateService(@PathVariable("serviceId") int serviceId) {
-        serviceSubscriptionService.deactivateService(jwtService.extractUserId(), serviceId);
-        return ResponseEntity.ok("Service deactivated successfully");
+        try{
+            if(!serviceSubscriptionService.deactivateService(jwtService.extractUserId(), serviceId))
+                throw new Exception();
+
+            return ResponseEntity.ok("Service deactivated successfully");
+        } catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @GetMapping("/get")

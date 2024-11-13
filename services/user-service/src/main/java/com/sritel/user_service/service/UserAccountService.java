@@ -3,6 +3,7 @@ package com.sritel.user_service.service;
 import com.sritel.user_service.model.User;
 import com.sritel.user_service.repository.UserRepository;
 import com.sritel.user_service.util.JwtUtil;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -40,7 +41,7 @@ public class UserAccountService {
     }
 
 
-
+    @Transactional
     public Optional<User> getUserByUsername(String username) {
         return userRepository.findByUserName(username);
     }

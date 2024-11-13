@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d66d6fc0-7ff9-41a4-89e3-77d2f776b10f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/UserDataClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/filter/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/model/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/repository/ServiceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/service/UserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/controller/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/dto/BillDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/dto/BillDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/model/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/model/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/service/BillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/billing-service/src/main/java/sritel_web_portal/demo/service/BillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/controller/ServiceSubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/controller/ServiceSubscriptionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/dto/BillDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/dto/BillDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/BillServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/BillServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/feignclient/UserServiceClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/model/ServiceSubscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/model/ServiceSubscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/service/ServiceSubscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/service-subscription-service/src/main/java/com/sritel/service_subscription_service/service/ServiceSubscriptionService.java" afterDir="false" />
-    </list>
+    <list default="true" id="d66d6fc0-7ff9-41a4-89e3-77d2f776b10f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +18,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "kushantha99"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DarshanaBombuwala/sritel-web-portal.git",
+    "accountId": "af08342d-9ff6-4602-b9b5-f0076937cfcd"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -53,9 +47,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/STL/sritel-web-portal/services/billing-service",
+    "last_opened_file_path": "G:/UCSC/Year 3/Middleware Architecture/Assignment/New folder/sritel-web-portal/api_gateway",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,9 +82,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-cf227e86" />
-        <option value="jdk-17.0.10-graalvm-jdk-17.0.10-3183f394aec4-6e2c94c7" />
-        <option value="jdk-17.0.9-jbr-17.0.9-3183f394aec4-a6a953b0" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -108,6 +101,7 @@
       <workItem from="1727123845781" duration="15000" />
       <workItem from="1727451047345" duration="4397000" />
       <workItem from="1727456047842" duration="533000" />
+      <workItem from="1730826348003" duration="110000" />
     </task>
     <servers />
   </component>

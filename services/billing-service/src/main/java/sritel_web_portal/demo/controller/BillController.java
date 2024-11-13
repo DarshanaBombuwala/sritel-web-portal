@@ -26,13 +26,13 @@ public class BillController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> createBill(@RequestBody BillDto billDto){
+    public ResponseEntity<Boolean> createBill(@RequestBody BillDto billDto){
         try{
             System.out.println(billDto);
             billService.createBill(billDto);
-            return ResponseEntity.ok("Bill created successfully.");
+            return ResponseEntity.ok(true);
         }catch (Exception e){
-            return ResponseEntity.internalServerError().body(e.getMessage());
+            return ResponseEntity.internalServerError().body(false);
         }
     }
 

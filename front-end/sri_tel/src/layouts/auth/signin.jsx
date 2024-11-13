@@ -1,26 +1,31 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import '../../App.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../../App.css";
+import { useAxios } from "../../hooks/useAxiso";
 
 function SignIn() {
   // State to hold input values
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  
+  const { nonAuthApi } = useAxios();
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
-    await axios.post('http://localhost:8081/AUTH-SERVICE/authentication/login', {username: username, password: password})
-      .then(response => {
-        if(response.status===200){
-          navigate('/options')
+    await nonAuthApi
+      .post("/AUTH-SERVICE/authentication/login", {
+        userName: username,
+        password: password,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          localStorage.setItem("token", response.data);
+          navigate("/options");
         }
       })
-      .catch(error => {
-        
-      })
+      .catch((error) => {});
     // You can add your sign-in logic here (like calling an API)
   };
 
@@ -48,13 +53,15 @@ function SignIn() {
             required
           />
         </div>
-        
+
         <div className="form-group">
-          <button className="form-button" type="submit">Sign In</button>
+          <button className="form-button" type="submit">
+            Sign In
+          </button>
         </div>
       </form>
     </div>
   );
-};
+}
 
 export default SignIn;

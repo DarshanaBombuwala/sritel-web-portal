@@ -21,6 +21,7 @@ public class Bill {
 
     private float amount;
     private LocalDate createdDate;
+    @Enumerated(EnumType.STRING)
     private BillStatus billStatus;
     private int userId;
     private String serviceName;

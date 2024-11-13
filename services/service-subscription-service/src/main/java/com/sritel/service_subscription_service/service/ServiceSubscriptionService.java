@@ -8,7 +8,9 @@ import com.sritel.service_subscription_service.model.ServiceSubscription;
 import com.sritel.service_subscription_service.repository.ServiceRepository;
 import com.sritel.service_subscription_service.repository.ServiceSubscriptionRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,7 +26,8 @@ public class ServiceSubscriptionService {
     private final ServiceRepository serviceRepository;
 
 
-    public void activateService(int userId, int serviceId) {
+    @Transactional
+    public Boolean activateService(int userId, int serviceId) {
         // Fetch user details from user-service using Feign Client
         Optional<com.sritel.service_subscription_service.model.Service> service = serviceRepository.findById((long) serviceId);
         // Now you have user details, continue with your service subscription logic
@@ -38,30 +41,38 @@ public class ServiceSubscriptionService {
             subscription.setStatus(SubscriptionStatus.valueOf("ACTIVE"));
             subscription.setServiceName(service1.getName());
             subscription.setActivationDate(LocalDateTime.now());
-            serviceSubscriptionRepository.save(subscription);
-
-            String result = billServiceClient.createBill(
-                new BillDto(
-                    0,
-                    service1.getAmount(),
-                    BillStatus.PENDING,
-                    userId,
-                    service1.getName(),
-                    serviceId
-                )
-            );
+            try{
+                serviceSubscriptionRepository.save(subscription);
+            }catch (Exception e) {
+                return false;
+            }
+            return billServiceClient.createBill(
+                                                new BillDto(
+                                0,
+                                service1.getAmount(),
+                                BillStatus.PENDING,
+                                userId,
+                                service1.getName(),
+                                serviceId
+                            )
+                        );
         }
+        return false;
     }
 
-    public void deactivateService(int userId, int serviceId){
+    @Transactional
+    public Boolean deactivateService(int userId, int serviceId){
         ServiceSubscription subscription = serviceSubscriptionRepository
                 .findByUserAndService(userId, serviceId);
         if(subscription != null) {
+
             subscription.setStatus(SubscriptionStatus.valueOf("INACTIVE"));
             subscription.setDeactivationDate(LocalDateTime.now());
 
             serviceSubscriptionRepository.save(subscription);
+            return true;
         }
+        return false;
     }
 
     public List<Integer> getAllSubscribedServices(){

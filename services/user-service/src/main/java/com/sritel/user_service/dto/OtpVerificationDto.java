@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OtpVerificationDto {
 
-    private String otpCode;
+    private String otp;
+    private String mobileNumber;
 }

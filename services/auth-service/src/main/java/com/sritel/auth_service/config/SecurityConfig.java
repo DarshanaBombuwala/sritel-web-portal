@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF for stateless APIs
                 .authorizeHttpRequests(auth -> auth
-                          .requestMatchers("/authentication/login", "/otp/getOtp", "/otp/verify-otp").permitAll()
+                          .requestMatchers("/authentication/login", "/otp/send-otp", "/otp/verify-otp").permitAll()
 //                        .requestMatchers("/auth/user/**").hasAuthority("ROLE_USER")
                         .requestMatchers("/auth/admin/**").hasAuthority("ROLE_ADMIN") // Role-based access for admins
                         .anyRequest().authenticated() // Protect all other endpoints

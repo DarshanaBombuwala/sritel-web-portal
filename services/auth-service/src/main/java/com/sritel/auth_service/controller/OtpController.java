@@ -28,42 +28,65 @@ public class OtpController {
     private ConcurrentHashMap<String, String> otpCache = new ConcurrentHashMap<>();
 
     @PostMapping("/send-otp")
-    public ResponseEntity<String> sendOtp(@RequestBody OtpRequestDto otpRequest){
+    public ResponseEntity<String> sendOtp(@RequestBody OtpRequestDto otpRequest) {
         Twilio.init(System.getenv("TWILIO_ACCOUNT_SID"), System.getenv("TWILIO_AUTH_TOKEN"));
-        Verification verification = Verification.creator(
-                        "VAe545522581b54399c3d2d4695d878fb5",
-                        "+94788886171", //this is your Twilio verified recipient phone number
-                        "sms") // this is your channel type
-                .create();
 
-<<<<<<< HEAD
-        otpCache.put("+94788886171", verification.getSid());
-=======
+        try {
+            // Use phone number from request
+//            String phoneNumber = "+94"+otpRequest.getMobileNumber().toString();
+            String phoneNumber = "+94788886171";
 
->>>>>>> origin/dev
+            // Create and send OTP
+            Verification verification = Verification.creator(
+                            "VAe545522581b54399c3d2d4695d878fb5", // Replace with your Twilio Verification Service SID
+                            phoneNumber,
+                            "sms") // Channel type, can be "sms" or "call"
+                    .create();
 
-        return new ResponseEntity<>("Your OTP has been sent to your verified phone number", HttpStatus.OK);
+            // Store verification SID if needed for tracking
+            otpCache.put(phoneNumber, verification.getSid());
+
+            return new ResponseEntity<>("Your OTP has been sent to your phone number.", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to send OTP. Please try again later.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
 
     @PostMapping("/verify-otp")
     public ResponseEntity<String> verifyOtp(@RequestBody OtpVerificationDto otpVerification) {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Twilio.init(System.getenv("TWILIO_ACCOUNT_SID"), System.getenv("TWILIO_AUTH_TOKEN"));
 
         try {
-            String cachedVerificationSid = otpCache.get("+94788886171");
+            // Verification Service SID
+            String verificationServiceSid = "VAe545522581b54399c3d2d4695d878fb5";
 
-            VerificationCheck verificationCheck = VerificationCheck.creator(
-                            "VAe545522581b54399c3d2d4695d878fb5")
-                    .setTo("+94788886171")
-                    .setCode("486578")
+            // Extract phone number and OTP from the request body
+//            String phoneNumber = "+94"+otpVerification.getMobileNumber().toString();
+            String phoneNumber = "+94788886171";
+            String code = otpVerification.getOtp();
+
+            // Perform verification check
+            VerificationCheck verificationCheck = VerificationCheck.creator(verificationServiceSid)
+                    .setTo(phoneNumber)
+                    .setCode(code)
                     .create();
 
-            if (!"approved".equals(verificationCheck.getStatus())) throw new IllegalStateException("");
+            // Check verification status
+            if (!"approved".equals(verificationCheck.getStatus())) {
+                return new ResponseEntity<>("Verification failed. Invalid code.", HttpStatus.BAD_REQUEST);
+            }
+
+//            return new ResponseEntity<>("", HttpStatus.OK);
+
 
         } catch (Exception e) {
-            return new ResponseEntity<>("Verification failed.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Verification failed due to an internal error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>("This user's verification has been completed successfully", HttpStatus.OK);
+
+        return new ResponseEntity<>("User verification completed successfully.", HttpStatus.OK);
     }
+
+
 
 }

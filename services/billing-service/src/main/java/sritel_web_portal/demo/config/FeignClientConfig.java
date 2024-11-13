@@ -1,4 +1,4 @@
-package com.sritel.service_subscription_service.config;
+package sritel_web_portal.demo.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

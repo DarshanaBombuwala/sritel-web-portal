@@ -50,7 +50,12 @@ public class JwtService {
     }
 
     public int extractUserId() {
-        return Integer.parseInt(extractAllClaims(SecurityContextHolder.getContext().getAuthentication().getCredentials().toString()).get("userId", String.class));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserInfoDetails userDetails) {
+            return userDetails.getUserId();
+        }
+        return 0;
+//        return Integer.parseInt(extractAllClaims(SecurityContextHolder.getContext().getAuthentication().getCredentials().toString()).get("userId", String.class));
     }
 
     // Extract the expiration date from the token

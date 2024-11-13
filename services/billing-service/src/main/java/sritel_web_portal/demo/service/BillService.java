@@ -2,6 +2,7 @@ package sritel_web_portal.demo.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sritel_web_portal.demo.dto.BillDto;
 import sritel_web_portal.demo.dto.PaymentDto;
 import sritel_web_portal.demo.enums.BillStatus;
@@ -23,6 +24,7 @@ public class BillService {
         return billRepository.findAll();
     }
 
+    @Transactional
     public void createBill(BillDto billDto){
         Bill bill = new Bill();
         bill.setAmount(billDto.getAmount());
